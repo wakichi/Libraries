@@ -40,11 +40,14 @@ class GridGraph(BaseGraph):
 class WeightGraph(BaseGraph):
     def __init__(self, n, m):
         super().__init__(n,m)
-    
+    # 0-indexに注意
     def _input(self):
         for _ in range(self.m):
             a,b,w = map(int, input().split())
-            self.Graph[a-1].append([b-1, w])
+            self.Graph[a].append([b, w])
+
+    def output(self,v):
+        return self.Graph[v]
 
 
 if __name__ == "__main__":
@@ -52,3 +55,4 @@ if __name__ == "__main__":
     graph = WeightGraph(n,m)
     graph._input()
     graph._print()
+    print(graph.output(0))

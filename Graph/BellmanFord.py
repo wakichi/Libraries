@@ -1,6 +1,6 @@
 from BaseGraph import WeightGraph
-INF = 10**11
-def belfor(graph,n,m,start):
+INF = float('inf')
+def belfor(graph,n,start):
     dist = [INF]*n
     dist[start] = 0
     negative_cycle = False
@@ -26,9 +26,8 @@ if __name__ == "__main__":
     n,m = map(int,input().split())
     graph = WeightGraph(n,m)
     graph._input()
-    exist_negative_cycle = False
     start_node = 0
-    dis = belfor(graph,n,m,start_node)
+    dis = belfor(graph,n,start_node)
     if dis == []:
         print("exist negative cycle")
     else:
