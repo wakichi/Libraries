@@ -36,9 +36,19 @@ class GridGraph(BaseGraph):
             grid = input()
             self.Graph[i] = list(map(lambda c: 1 if c == self.exist else 0 , grid))
 
+# グラフのiばんめは、(to, weight)　で格納
+class WeightGraph(BaseGraph):
+    def __init__(self, n, m):
+        super().__init__(n,m)
+    
+    def _input(self):
+        for _ in range(self.m):
+            a,b,w = map(int, input().split())
+            self.Graph[a-1].append([b-1, w])
+
 
 if __name__ == "__main__":
     n,m = map(int, input().split())
-    graph = BaseGraph(n,m, move_eight=True)
+    graph = WeightGraph(n,m)
     graph._input()
     graph._print()
