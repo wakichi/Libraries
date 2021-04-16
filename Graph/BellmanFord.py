@@ -13,7 +13,6 @@ def belfor(graph,n,m,start):
                 if dist[e[0]]  > dist[v] +e[1]:
                     dist[e[0]] = dist[v] +e[1]
                     update = True
-
         if not update: break
 
         if (i == n-1 and update):negative_cycle = True
@@ -28,7 +27,7 @@ if __name__ == "__main__":
     graph = WeightGraph(n,m)
     graph._input()
     exist_negative_cycle = False
-    start_node = 2
+    start_node = 0
     dis = belfor(graph,n,m,start_node)
     if dis == []:
         print("exist negative cycle")
@@ -36,4 +35,12 @@ if __name__ == "__main__":
         for i in range(n):
             print(i, dis[i] if dis[i]!= INF else "INF")
 
-    
+"""
+sample
+6 5 
+0 1 3
+1 2 -10
+2 3 2
+3 1 4
+1 4 9
+"""
