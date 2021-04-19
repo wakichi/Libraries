@@ -44,8 +44,8 @@ class WeightGraph(BaseGraph):
     def _input(self):
         for _ in range(self.m):
             a,b,w = map(int, input().split())
-            self.Graph[a].append([b, w])
-
+            self.Graph[a-1].append([b-1, w])
+    # 頂点vに対して、その情報を[繋がっている頂点、重さ]を要素としたリストで返す
     def output(self,v):
         return self.Graph[v]
 
